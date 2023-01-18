@@ -77,7 +77,7 @@ const SideDrawer = () => {
             }
 
             const { data } = await axios.get(
-                `/api/user?search=${search}`,
+                `https://mern-chat-api-sidd.onrender.com/api/user?search=${search}`,
                 config
             )
 
@@ -106,7 +106,11 @@ const SideDrawer = () => {
                     Authorization: `Bearer ${user.token}`,
                 },
             }
-            const { data } = await axios.post(`/api/chat`, { userId }, config)
+            const { data } = await axios.post(
+                `https://mern-chat-api-sidd.onrender.com/api/chat`,
+                { userId },
+                config
+            )
 
             if (!chats.find((c) => c._id === data._id))
                 setChats([data, ...chats])

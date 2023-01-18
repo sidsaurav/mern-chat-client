@@ -19,7 +19,10 @@ const MyChats = ({ fetchAgain }) => {
                 },
             }
 
-            const { data } = await axios.get('/api/chat', config)
+            const { data } = await axios.get(
+                'https://mern-chat-api-sidd.onrender.com/api/chat',
+                config
+            )
             setChats(data)
         } catch (error) {
             toast({
